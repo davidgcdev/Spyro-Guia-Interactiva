@@ -2,47 +2,53 @@
 <worlds>
     <world>
         <name>Playa Soleada</name>
-        <description>Un mundo soleado y tropical lleno de agua y criaturas amistosas. Aquí Spyro ayuda a salvar a los pequeños dragones atrapados.</description>
+        <description>Un mundo soleado y tropical lleno de agua y criaturas amistosas.</description>
         <image>sunny_beach</image>
     </world>
     <world>
         <name>Jardines del Mediodía</name>
-        <description>Un mundo con un clima cálido y templado, hogar de criaturas místicas y de la heroína de las misiones, Hunter el explorador.</description>
+        <description>Un mundo con clima cálido, hogar de criaturas místicas y del explorador
+            Hunter.
+        </description>
         <image>midday_gardens</image>
     </world>
     <world>
         <name>Planicies Otoñales</name>
-        <description>Un mundo con paisajes otoñales y lleno de magia. Spyro se enfrenta a varios desafíos para ayudar a los habitantes de este mundo.</description>
+        <description>Un mundo con paisajes otoñales lleno de magia y desafíos.</description>
         <image>autumn_plains</image>
     </world>
     <world>
         <name>Destello</name>
-        <description>Un mundo lleno de piedras preciosas y plataformas flotantes. Es uno de los primeros mundos que Spyro explora en su aventura.</description>
+        <description>Un mundo lleno de piedras preciosas y plataformas flotantes.</description>
         <image>glimmer</image>
     </world>
     <world>
         <name>Picos Nublados</name>
-        <description>Un mundo flotante en las nubes, lleno de grandes torres y plataformas en el cielo. Spyro debe usar sus habilidades para navegar por los peligros.</description>
+        <description>Un mundo flotante en las nubes lleno de torres y plataformas en el cielo.
+        </description>
         <image>cloud_spires</image>
     </world>
     <world>
         <name>Sala del Huracán</name>
-        <description>Un mundo de viento y tormentas, donde Spyro se enfrenta a desafíos de velocidad y saltos extremos.</description>
+        <description>Un mundo de viento y tormentas con desafíos de velocidad y saltos extremos.
+        </description>
         <image>hurricane_halls</image>
     </world>
     <world>
         <name>Altares Congelados</name>
-        <description>Un mundo helado y nevado, lleno de criaturas de hielo y misterios por resolver. Spyro debe atravesar peligrosas áreas congeladas.</description>
+        <description>Un mundo helado y nevado lleno de criaturas de hielo y misterios.</description>
         <image>frozen_altars</image>
     </world>
     <world>
         <name>Flota Perdida</name>
-        <description>Un mundo lleno de barcos abandonados y islas misteriosas. Spyro tiene que enfrentarse a enemigos y resolver acertijos para avanzar.</description>
+        <description>Un mundo de barcos abandonados e islas misteriosas con acertijos.</description>
         <image>lost_fleet</image>
     </world>
     <world>
         <name>Playa del Atardecer</name>
-        <description>Un hermoso y relajante mundo costero, pero con varios enemigos que intentarían impedir que Spyro complete sus misiones.</description>
+        <description>Un hermoso mundo costero con enemigos que intentan impedir el avance de
+            Spyro.
+        </description>
         <image>sunset_beach</image>
     </world>
 </worlds>

@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.adapters.CollectiblesAdapter
 import dam.pmdm.spyrothedragon.databinding.FragmentCollectiblesBinding
 import dam.pmdm.spyrothedragon.models.Collectible
@@ -20,7 +18,6 @@ class CollectiblesFragment : Fragment() {
     private var _binding: FragmentCollectiblesBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CollectiblesAdapter
     private val collectiblesList = mutableListOf<Collectible>()
 
@@ -29,14 +26,10 @@ class CollectiblesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentCollectiblesBinding.inflate(inflater, container, false)
-
-        recyclerView = binding.recyclerViewCollectibles
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewCollectibles.layoutManager = LinearLayoutManager(requireContext())
         adapter = CollectiblesAdapter(collectiblesList)
-        recyclerView.adapter = adapter
-
+        binding.recyclerViewCollectibles.adapter = adapter
         loadCollectibles()
         return binding.root
     }
@@ -49,38 +42,31 @@ class CollectiblesFragment : Fragment() {
     private fun loadCollectibles() {
         try {
             val inputStream: InputStream =
-                resources.openRawResource(R.raw.collectibles)
-
+                resources.openRawResource(dam.pmdm.spyrothedragon.R.raw.collectibles)
             val factory = XmlPullParserFactory.newInstance()
             factory.isNamespaceAware = true
             val parser = factory.newPullParser()
             parser.setInput(inputStream, null)
-
             var eventType = parser.eventType
-            var currentCollectible: Collectible? = null
-
+            var current: Collectible? = null
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 when (eventType) {
-                    XmlPullParser.START_TAG -> {
-                        when (parser.name) {
-                            "collectible" -> currentCollectible = Collectible()
-                            "name" -> currentCollectible?.name = parser.nextText()
-                            "description" -> currentCollectible?.description = parser.nextText()
-                            "image" -> currentCollectible?.image = parser.nextText()
-                        }
+                    XmlPullParser.START_TAG -> when (parser.name) {
+                        "collectible" -> current = Collectible()
+                        "name" -> current?.name = parser.nextText()
+                        "description" -> current?.description = parser.nextText()
+                        "image" -> current?.image = parser.nextText()
                     }
 
                     XmlPullParser.END_TAG -> {
-                        if (parser.name == "collectible" && currentCollectible != null) {
-                            collectiblesList.add(currentCollectible)
+                        if (parser.name == "collectible" && current != null) {
+                            collectiblesList.add(current)
                         }
                     }
                 }
                 eventType = parser.next()
             }
-
             adapter.notifyDataSetChanged()
-
         } catch (e: Exception) {
             e.printStackTrace()
         }

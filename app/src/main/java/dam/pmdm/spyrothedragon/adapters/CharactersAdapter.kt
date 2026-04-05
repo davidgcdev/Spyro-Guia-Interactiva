@@ -1,8 +1,10 @@
 package dam.pmdm.spyrothedragon.adapters
 
+import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +12,8 @@ import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.models.Character
 
 class CharactersAdapter(
-    private val list: List<Character>
+    private val list: List<Character>,
+    private val onRiptoLongClick: () -> Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharactersViewHolder>() {
 
     private val characterImages = mapOf(
@@ -29,9 +32,29 @@ class CharactersAdapter(
     override fun onBindViewHolder(holder: CharactersViewHolder, position: Int) {
         val character = list[position]
         holder.nameTextView.text = character.name
-
         val drawableRes = characterImages[character.image] ?: R.drawable.placeholder
         holder.imageImageView.setImageResource(drawableRes)
+
+        if (character.image == "ripto") {
+            // Ripto: solo pulsación larga — Easter Egg animación
+            holder.itemView.setOnClickListener(null)
+            holder.itemView.setOnLongClickListener {
+                onRiptoLongClick()
+                true
+            }
+        } else {
+            // Resto de personajes: flash + sonido al pulsar
+            holder.itemView.setOnLongClickListener(null)
+            holder.itemView.setOnClickListener {
+                val flash = AnimationUtils.loadAnimation(
+                    holder.itemView.context, R.anim.flash
+                )
+                holder.imageImageView.startAnimation(flash)
+                val mp = MediaPlayer.create(holder.itemView.context, R.raw.gem_absorb1)
+                mp?.start()
+                mp?.setOnCompletionListener { it.release() }
+            }
+        }
     }
 
     override fun getItemCount(): Int = list.size

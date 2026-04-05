@@ -1,8 +1,10 @@
 package dam.pmdm.spyrothedragon.adapters
 
+import android.media.MediaPlayer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -31,9 +33,18 @@ class CollectiblesAdapter(
     override fun onBindViewHolder(holder: CollectiblesViewHolder, position: Int) {
         val collectible = list[position]
         holder.nameTextView.text = collectible.name
-
         val drawableRes = collectibleImages[collectible.image] ?: R.drawable.placeholder
         holder.imageImageView.setImageResource(drawableRes)
+
+        holder.itemView.setOnClickListener {
+            val flash = AnimationUtils.loadAnimation(
+                holder.itemView.context, R.anim.flash
+            )
+            holder.imageImageView.startAnimation(flash)
+            val mp = MediaPlayer.create(holder.itemView.context, R.raw.gem_absorb1)
+            mp?.start()
+            mp?.setOnCompletionListener { it.release() }
+        }
     }
 
     override fun getItemCount(): Int = list.size

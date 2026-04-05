@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import dam.pmdm.spyrothedragon.R
 import dam.pmdm.spyrothedragon.adapters.WorldsAdapter
 import dam.pmdm.spyrothedragon.databinding.FragmentWorldsBinding
@@ -20,7 +19,6 @@ class WorldsFragment : Fragment() {
     private var _binding: FragmentWorldsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: WorldsAdapter
     private val worldsList = mutableListOf<World>()
 
@@ -29,13 +27,11 @@ class WorldsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentWorldsBinding.inflate(inflater, container, false)
 
-        recyclerView = binding.recyclerViewWorlds
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerViewWorlds.layoutManager = LinearLayoutManager(requireContext())
         adapter = WorldsAdapter(worldsList)
-        recyclerView.adapter = adapter
+        binding.recyclerViewWorlds.adapter = adapter
 
         loadWorlds()
         return binding.root
@@ -48,39 +44,31 @@ class WorldsFragment : Fragment() {
 
     private fun loadWorlds() {
         try {
-            val inputStream: InputStream =
-                resources.openRawResource(R.raw.worlds)
-
+            val inputStream: InputStream = resources.openRawResource(R.raw.worlds)
             val factory = XmlPullParserFactory.newInstance()
             factory.isNamespaceAware = true
             val parser = factory.newPullParser()
             parser.setInput(inputStream, null)
-
             var eventType = parser.eventType
-            var currentWorld: World? = null
-
+            var current: World? = null
             while (eventType != XmlPullParser.END_DOCUMENT) {
                 when (eventType) {
-                    XmlPullParser.START_TAG -> {
-                        when (parser.name) {
-                            "world" -> currentWorld = World()
-                            "name" -> currentWorld?.name = parser.nextText()
-                            "description" -> currentWorld?.description = parser.nextText()
-                            "image" -> currentWorld?.image = parser.nextText()
-                        }
+                    XmlPullParser.START_TAG -> when (parser.name) {
+                        "world" -> current = World()
+                        "name" -> current?.name = parser.nextText()
+                        "description" -> current?.description = parser.nextText()
+                        "image" -> current?.image = parser.nextText()
                     }
 
                     XmlPullParser.END_TAG -> {
-                        if (parser.name == "world" && currentWorld != null) {
-                            worldsList.add(currentWorld)
+                        if (parser.name == "world" && current != null) {
+                            worldsList.add(current)
                         }
                     }
                 }
                 eventType = parser.next()
             }
-
             adapter.notifyDataSetChanged()
-
         } catch (e: Exception) {
             e.printStackTrace()
         }
