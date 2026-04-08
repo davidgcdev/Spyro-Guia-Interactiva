@@ -7,4 +7,12 @@
     <color name="yellow2">#88ffffff</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+
+    <color name="guide_overlay_bg">#BB000000</color>
+    <color name="guide_btn_skip">#FF5722</color>
+    <color name="guide_btn_next">#4CAF50</color>
+    <color name="guide_btn_action">#FFD700</color>
+    <color name="guide_text_primary">#FFFFFF</color>
+    <color name="guide_text_title">#FFD700</color>
+    <color name="guide_text_action">#000000</color>
 </resources>

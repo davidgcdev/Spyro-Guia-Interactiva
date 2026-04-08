@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/guide_overlay_bg"
+    android:clickable="true"
+    android:focusable="true">
+
+    <Button
+        android:id="@+id/btn_skip_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/guide_btn_skip"
+        android:text="@string/guide_skip"
+        android:textColor="@color/guide_text_primary" />
+
+    <Button
+        android:id="@+id/btn_next_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="130dp"
+        android:backgroundTint="@color/guide_btn_next"
+        android:text="@string/guide_next"
+        android:textColor="@color/guide_text_primary"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/guide_indicator"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="68dp"
+        android:contentDescription="Indicador de guía"
+        android:src="@drawable/punto_luminoso"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/guide_bubble"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="180dp"
+        android:alpha="0"
+        android:background="@drawable/bocadillo_bg"
+        android:gravity="center"
+        android:padding="12dp"
+        android:textColor="@color/guide_text_primary"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/welcome_layout"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/guide_welcome_bg"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/guide_welcome_title"
+            android:textColor="@color/guide_text_title"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="@string/guide_welcome_body"
+            android:textColor="@color/guide_text_primary"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_start_guide"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/guide_btn_action"
+            android:text="@string/guide_start"
+            android:textColor="@color/guide_text_action"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/final_layout"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/guide_welcome_bg"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/guide_completed_title"
+            android:textColor="@color/guide_text_title"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/guide_completed_subtitle"
+            android:textColor="@color/guide_text_primary"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/guide_step_characters"
+            android:textColor="@color/guide_text_primary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guide_step_worlds"
+            android:textColor="@color/guide_text_primary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/guide_step_collectibles"
+            android:textColor="@color/guide_text_primary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/guide_step_info"
+            android:textColor="@color/guide_text_primary"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/btn_finish_guide"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/guide_btn_action"
+            android:text="@string/guide_finish"
+            android:textColor="@color/guide_text_action"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

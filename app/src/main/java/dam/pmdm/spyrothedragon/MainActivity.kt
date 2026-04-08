@@ -56,6 +56,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val currentDest = navController?.currentDestination?.id
+        when (currentDest) {
+            R.id.navigation_characters -> bottomNav.selectedItemId = R.id.nav_characters
+            R.id.navigation_worlds -> bottomNav.selectedItemId = R.id.nav_worlds
+            R.id.navigation_collectibles -> bottomNav.selectedItemId = R.id.nav_collectibles
+        }
+    }
+
     private fun setupNavigation() {
         val navHostFragment: Fragment? =
             supportFragmentManager.findFragmentById(R.id.navHostFragment)
@@ -139,29 +149,29 @@ class MainActivity : AppCompatActivity() {
 
             1 -> {
                 navController?.navigate(R.id.navigation_characters)
-                showTabGuide(0, "🐉 Personajes\nAquí podrás explorar a Spyro, Hunter, Elora y Ripto")
+                showTabGuide(0, getString(R.string.guide_bubble_characters))
                 btnNext.visibility = View.VISIBLE
-                btnNext.text = "Siguiente"
+                btnNext.text = getString(R.string.guide_next)
             }
 
             2 -> {
                 navController?.navigate(R.id.navigation_worlds)
-                showTabGuide(1, "🌍 Mundos\nDescubre los reinos mágicos de Spyro")
+                showTabGuide(1, getString(R.string.guide_bubble_worlds))
                 btnNext.visibility = View.VISIBLE
-                btnNext.text = "Siguiente"
+                btnNext.text = getString(R.string.guide_next)
             }
 
             3 -> {
                 navController?.navigate(R.id.navigation_collectibles)
-                showTabGuide(2, "💎 Coleccionables\nConsigue gemas, huevos y tesoros")
+                showTabGuide(2, getString(R.string.guide_bubble_collectibles))
                 btnNext.visibility = View.VISIBLE
-                btnNext.text = "Siguiente"
+                btnNext.text = getString(R.string.guide_next)
             }
 
             4 -> {
                 showInfoGuide()
                 btnNext.visibility = View.VISIBLE
-                btnNext.text = "Finalizar"
+                btnNext.text = getString(R.string.guide_finish)
             }
         }
     }
@@ -202,7 +212,7 @@ class MainActivity : AppCompatActivity() {
         val screenWidth = resources.displayMetrics.widthPixels
 
         guideBubble.alpha = 0f
-        guideBubble.text = "ℹ️ Información\nPulsa aquí para ver detalles sobre la app"
+        guideBubble.text = getString(R.string.guide_bubble_info)
         guideBubble.visibility = View.VISIBLE
         guideIndicator.visibility = View.VISIBLE
 
@@ -221,7 +231,6 @@ class MainActivity : AppCompatActivity() {
             }
             val fadeIn = ObjectAnimator.ofFloat(guideBubble, "alpha", 0f, 1f).apply {
                 duration = 600
-
             }
             AnimatorSet().apply {
                 playTogether(scaleX, scaleY, fadeIn)

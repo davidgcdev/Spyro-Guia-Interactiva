@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SpyroTheDragon</string>
     <string name="worlds">Mundos</string>
@@ -6,4 +7,22 @@
     <string name="title_about">Acerca de</string>
     <string name="text_about">Aplicación desarrollada por \n <b>David Guisado Carmona.</b></string>
     <string name="accept">Aceptar</string>
+
+    <string name="guide_skip">Saltar guía</string>
+    <string name="guide_next">Siguiente →</string>
+    <string name="guide_welcome_title">🐉 BIENVENIDO</string>
+    <string name="guide_welcome_body">Prepárate para explorar el mundo mágico de Spyro.\n\nAquí aprenderás a navegar por pestañas llenas de dragones, mundos fascinantes y montones de tesoros brillantes.\n\n¿Listo para empezar?</string>
+    <string name="guide_start">COMENZAR</string>
+    <string name="guide_completed_title">✅ GUÍA COMPLETADA</string>
+    <string name="guide_completed_subtitle">Has aprendido a usar:</string>
+    <string name="guide_step_characters">✔ Pestaña Personajes</string>
+    <string name="guide_step_worlds">✔ Pestaña Mundos</string>
+    <string name="guide_step_collectibles">✔ Pestaña Coleccionables</string>
+    <string name="guide_step_info">✔ Icono de información ⓘ</string>
+    <string name="guide_finish">¡EMPEZAR A JUGAR!</string>
+
+    <string name="guide_bubble_characters">🐉 Personajes\nAquí podrás explorar a Spyro, Hunter, Elora y Ripto</string>
+    <string name="guide_bubble_worlds">🌍 Mundos\nDescubre los reinos mágicos de Spyro</string>
+    <string name="guide_bubble_collectibles">💎 Coleccionables\nConsigue gemas, huevos y tesoros</string>
+    <string name="guide_bubble_info">ℹ️ Información\nPulsa aquí para ver detalles sobre la app</string>
 </resources>
