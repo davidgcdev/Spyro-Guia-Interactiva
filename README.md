@@ -31,6 +31,16 @@ Para el desarrollo de las funcionalidades multimedia se han empleado las siguien
 ## Conclusiones del desarrollador
 El desarrollo de esta aplicación ha permitido profundizar en la importancia de la **retroalimentación (feedback)** visual y acústica en la experiencia de usuario. El mayor desafío técnico residió en la sincronización de las animaciones de la guía y la correcta liberación de recursos del `MediaPlayer` para evitar fugas de memoria. La implementación de una vista personalizada mediante `Canvas` proporcionó una comprensión sólida sobre el ciclo de redibujado de las vistas en Android.
 
+## Galería Visual
+
+<div align="center">
+  <img src="assets/guia_bienvenida.png" width="160" alt="Bienvenida a la Guía" />
+  <img src="assets/guia_personajes.png" width="160" alt="Explicación de Personajes" />
+  <img src="assets/guia_completada.png" width="160" alt="Guía Completada" />
+  <img src="assets/canvas_ripto.png" width="160" alt="Efecto mágico Canvas" />
+  <img src="assets/video_egg.png" width="160" alt="Easter Egg de Vídeo" />
+</div>
+
 ---
 **Curso académico:** 2025/26
 **Ciclo formativo:** DAM
